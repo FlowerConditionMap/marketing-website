@@ -1,0 +1,102 @@
+/* Import Bootstrap */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* Custom Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+/* Custom gradient backgrounds */
+.bg-gradient-pink-green {
+  background: linear-gradient(to bottom, #fdf2f8, #ffffff, #f0fdf4);
+}
+
+.bg-gradient-feature-1 {
+  background: linear-gradient(to bottom right, #fce7f3, #ffffff);
+}
+
+.bg-gradient-feature-2 {
+  background: linear-gradient(to bottom right, #faf5ff, #ffffff);
+}
+
+.bg-gradient-feature-3 {
+  background: linear-gradient(to bottom right, #f0fdf4, #ffffff);
+}
+
+.bg-gradient-feature-4 {
+  background: linear-gradient(to bottom right, #fefce8, #ffffff);
+}
+
+.bg-gradient-feature-5 {
+  background: linear-gradient(to bottom right, #eff6ff, #ffffff);
+}
+
+.bg-gradient-feature-6 {
+  background: linear-gradient(to bottom right, #fef2f2, #ffffff);
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(to right, #db2777, #a855f7, #16a34a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* App icon gradient */
+.app-icon {
+  background: linear-gradient(to bottom right, #f472b6, #4ade80);
+}
+
+/* Seasonal card gradients */
+.season-spring {
+  background: linear-gradient(to bottom right, #fce7f3, #fbcfe8);
+}
+
+.season-summer {
+  background: linear-gradient(to bottom right, #dbeafe, #bfdbfe);
+}
+
+.season-autumn {
+  background: linear-gradient(to bottom right, #fed7aa, #fdba74);
+}
+
+.season-winter {
+  background: linear-gradient(to bottom right, #fef3c7, #fde68a);
+}
+
+/* Use case icons */
+.use-case-icon-1 {
+  background: linear-gradient(to bottom right, #f472b6, #f9a8d4);
+}
+
+.use-case-icon-2 {
+  background: linear-gradient(to bottom right, #4ade80, #86efac);
+}
+
+.use-case-icon-3 {
+  background: linear-gradient(to bottom right, #a78bfa, #c4b5fd);
+}
+
+/* CTA button gradient */
+.btn-gradient {
+  background: linear-gradient(to right, #ec4899, #a855f7);
+  border: none;
+  color: white;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(to right, #db2777, #9333ea);
+  color: white;
+}
+
+/* Custom rounded corners */
+.rounded-4xl {
+  border-radius: 2rem;
+}
+
+/* Backdrop blur effect */
+.backdrop-blur {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+}
