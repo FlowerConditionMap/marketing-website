@@ -1,123 +1,114 @@
-/* Import Bootstrap */
-@import "bootstrap/dist/css/bootstrap.min.css";
+@import 'tailwindcss';
 
-/* Custom Styles */
+@variant dark (&:where(.dark, .dark *));
+
+@custom-variant intersect (&:not([no-intersect]));
+
+@theme {
+  --color-primary: var(--fc-color-primary);
+  --color-secondary: var(--fc-color-secondary);
+  --color-accent: var(--fc-color-accent);
+  --color-default: var(--fc-color-text-default);
+  --color-muted: var(--fc-color-text-muted);
+  --color-heading: var(--fc-color-text-heading);
+
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', Roboto,
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  --font-heading: var(--font-sans);
+
+  --animate-fade: fadeInUp 1s both;
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+:root {
+  --fc-color-primary: rgb(219 39 119);
+  --fc-color-secondary: rgb(190 24 93);
+  --fc-color-accent: rgb(22 163 74);
+
+  --fc-color-text-heading: rgb(17 17 17);
+  --fc-color-text-default: rgb(31 31 31);
+  --fc-color-text-muted: rgb(31 31 31 / 66%);
+  --fc-color-bg-page: rgb(255 255 255);
+  --fc-color-bg-page-dark: rgb(15 10 20);
+}
+
+:root.dark {
+  --fc-color-primary: rgb(244 114 182);
+  --fc-color-secondary: rgb(236 72 153);
+  --fc-color-accent: rgb(74 222 128);
+
+  --fc-color-text-heading: rgb(247 248 248);
+  --fc-color-text-default: rgb(236 233 240);
+  --fc-color-text-muted: rgb(236 233 240 / 66%);
+  --fc-color-bg-page: rgb(15 10 20);
+}
+
+@utility bg-page {
+  background-color: var(--fc-color-bg-page);
+}
+
+@utility bg-dark {
+  background-color: var(--fc-color-bg-page-dark);
+}
+
+@utility text-page {
+  color: var(--fc-color-text-default);
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center rounded-full border-gray-400 border bg-transparent font-medium
+    text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200
+    focus:ring-pink-500 focus:ring-offset-pink-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100
+    hover:border-gray-600 dark:text-slate-300 dark:border-slate-500 dark:hover:bg-slate-800
+    dark:hover:border-slate-800 cursor-pointer;
+}
+
+@utility btn-primary {
+  @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary
+    hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary
+    dark:hover:bg-secondary;
+}
+
+@utility btn-secondary {
+  @apply btn;
+}
+
+@utility btn-tertiary {
+  @apply btn border-none shadow-none text-muted hover:text-gray-900 dark:text-gray-400 dark:hover:text-white;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background-color: var(--fc-color-bg-page);
+  color: var(--fc-color-text-default);
 }
 
-/* Custom gradient backgrounds */
-.bg-gradient-pink-green {
-  background: linear-gradient(to bottom, #fdf2f8, #ffffff, #f0fdf4);
+#header.scroll > div:first-child {
+  @apply bg-page md:bg-white/90 md:backdrop-blur-md;
+  box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%);
 }
 
-.bg-gradient-feature-1 {
-  background: linear-gradient(to bottom right, #fce7f3, #ffffff);
+.dark #header.scroll > div:first-child,
+#header.scroll.dark > div:first-child {
+  @apply bg-page md:bg-[#0f0a14e6] border-b border-gray-500/20;
+  box-shadow: none;
 }
 
-.bg-gradient-feature-2 {
-  background: linear-gradient(to bottom right, #faf5ff, #ffffff);
-}
-
-.bg-gradient-feature-3 {
-  background: linear-gradient(to bottom right, #f0fdf4, #ffffff);
-}
-
-.bg-gradient-feature-4 {
-  background: linear-gradient(to bottom right, #fefce8, #ffffff);
-}
-
-.bg-gradient-feature-5 {
-  background: linear-gradient(to bottom right, #eff6ff, #ffffff);
-}
-
-.bg-gradient-feature-6 {
-  background: linear-gradient(to bottom right, #fef2f2, #ffffff);
-}
-
-.bg-gradient-feature-7 {
-  background: linear-gradient(to bottom right, #fdf4ff, #ffffff);
-}
-
-/* Gradient text */
-.text-gradient {
-  background: linear-gradient(to right, #db2777, #a855f7, #16a34a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* App icon gradient */
-.app-icon {
-  background: linear-gradient(to bottom right, #f472b6, #4ade80);
-}
-
-/* Seasonal card gradients */
-.season-spring {
-  background: linear-gradient(to bottom right, #fce7f3, #fbcfe8);
-}
-
-.season-summer {
-  background: linear-gradient(to bottom right, #dbeafe, #bfdbfe);
-}
-
-.season-autumn {
-  background: linear-gradient(to bottom right, #fed7aa, #fdba74);
-}
-
-.season-winter {
-  background: linear-gradient(to bottom right, #fef3c7, #fde68a);
-}
-
-/* Use case icons */
-.use-case-icon-1 {
-  background: linear-gradient(to bottom right, #f472b6, #f9a8d4);
-}
-
-.use-case-icon-2 {
-  background: linear-gradient(to bottom right, #4ade80, #86efac);
-}
-
-.use-case-icon-3 {
-  background: linear-gradient(to bottom right, #a78bfa, #c4b5fd);
-}
-
-/* Flowering-stage timeline icons */
-.stage-icon-1 {
-  background: linear-gradient(to bottom right, #86efac, #4ade80);
-}
-
-.stage-icon-2 {
-  background: linear-gradient(to bottom right, #f9a8d4, #f472b6);
-}
-
-.stage-icon-3 {
-  background: linear-gradient(to bottom right, #fdba74, #fb923c);
-}
-
-.stage-icon-4 {
-  background: linear-gradient(to bottom right, #fde68a, #fbbf24);
-}
-
-/* CTA button gradient */
-.btn-gradient {
-  background: linear-gradient(to right, #ec4899, #a855f7);
-  border: none;
-  color: white;
-}
-
-.btn-gradient:hover {
-  background: linear-gradient(to right, #db2777, #9333ea);
-  color: white;
-}
-
-/* Custom rounded corners */
-.rounded-4xl {
-  border-radius: 2rem;
-}
-
-/* Backdrop blur effect */
-.backdrop-blur {
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
+#header.expanded nav {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 70px !important;
+  padding: 0 5px;
 }

@@ -1,0 +1,15 @@
+<script is:inline>
+  // Runs inline in <head> so the `.dark` class lands before first paint (anti-FOUC).
+  function applyTheme(theme) {
+    document.documentElement.classList[theme === 'dark' ? 'add' : 'remove']('dark');
+  }
+
+  function resolveTheme() {
+    if (localStorage.theme === 'dark' || localStorage.theme === 'light') {
+      return localStorage.theme;
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  applyTheme(resolveTheme());
+</script>

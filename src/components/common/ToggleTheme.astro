@@ -1,0 +1,45 @@
+---
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  label?: string;
+  class?: string;
+  iconClass?: string;
+}
+
+const {
+  label = '切換深色/淺色模式',
+  class:
+    className = 'text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center',
+  iconClass = 'w-6 h-6 md:w-5 md:h-5',
+} = Astro.props;
+---
+
+<fc-theme-toggle>
+  <button type="button" class={className} aria-label={label} data-toggle-color-scheme>
+    <Icon name="tabler:sun" class={`${iconClass} hidden dark:inline-block`} />
+    <Icon name="tabler:moon" class={`${iconClass} dark:hidden`} />
+  </button>
+</fc-theme-toggle>
+
+<style>
+  fc-theme-toggle {
+    display: contents;
+  }
+</style>
+
+<script>
+  class FcThemeToggle extends HTMLElement {
+    connectedCallback() {
+      this.querySelector('[data-toggle-color-scheme]')?.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.theme = isDark ? 'dark' : 'light';
+        document.dispatchEvent(new CustomEvent('fc:theme-change'));
+      });
+    }
+  }
+
+  if (!customElements.get('fc-theme-toggle')) {
+    customElements.define('fc-theme-toggle', FcThemeToggle);
+  }
+</script>
