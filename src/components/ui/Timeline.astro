@@ -1,0 +1,61 @@
+---
+import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
+
+export interface TimelineItem {
+  title?: string;
+  description?: string;
+  icon?: string;
+  classes?: Record<string, string>;
+}
+
+export interface Props {
+  items?: Array<TimelineItem>;
+  defaultIcon?: string;
+  classes?: Record<string, string>;
+}
+
+const { items = [], classes = {}, defaultIcon } = Astro.props;
+
+const {
+  container: containerClass = '',
+  panel: panelClass = '',
+  title: titleClass = '',
+  description: descriptionClass = '',
+  icon: defaultIconClass = 'text-primary border-primary dark:text-pink-300 dark:border-pink-400/60',
+} = classes;
+---
+
+{
+  items.length > 0 && (
+    <div class={containerClass}>
+      {items.map(({ title, description, icon, classes: itemClasses = {} }, index) => (
+        <div
+          class={twMerge(
+            'flex intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
+            panelClass,
+            itemClasses?.panel
+          )}
+        >
+          <div class="flex flex-col items-center mr-4">
+            <div class="flex items-center justify-center">
+              {(icon || defaultIcon) && (
+                <Icon
+                  name={icon || defaultIcon}
+                  class={twMerge('w-10 h-10 p-2 rounded-full border-2', defaultIconClass, itemClasses?.icon)}
+                />
+              )}
+            </div>
+            {index !== items.length - 1 && <div class="w-px h-full bg-black/10 dark:bg-slate-400/50" />}
+          </div>
+          <div class={`pt-1 ${index !== items.length - 1 ? 'pb-8' : ''}`}>
+            {title && <p class={twMerge('text-xl font-bold text-heading', titleClass, itemClasses?.title)} set:html={title} />}
+            {description && (
+              <p class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={description} />
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}

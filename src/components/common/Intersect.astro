@@ -1,0 +1,124 @@
+---
+// Reveal-on-scroll controller. One instance is rendered by the layout; it observes
+// elements using the `intersect` variants and staggers their reveal.
+// Adapted from AstroWind (https://github.com/onwidget/astrowind), MIT.
+---
+
+<fc-intersect aria-hidden="true"></fc-intersect>
+
+<style>
+  fc-intersect {
+    display: none;
+  }
+</style>
+
+<script>
+  class FcIntersect extends HTMLElement {
+    private observer: IntersectionObserver | null = null;
+    private elements: HTMLElement[] = [];
+    private thresholds = new WeakMap<Element, number>();
+    private animationCounter = 0;
+    private readonly delayBetweenAnimations = 100;
+    private onThemeChange = () => this.removeAnimationDelay();
+
+    connectedCallback() {
+      this.start();
+      document.addEventListener('fc:theme-change', this.onThemeChange);
+    }
+
+    disconnectedCallback() {
+      this.observer?.disconnect();
+      document.removeEventListener('fc:theme-change', this.onThemeChange);
+    }
+
+    private getThreshold(el: HTMLElement): number {
+      if (el.classList.contains('intersect-full')) return 0.99;
+      if (el.classList.contains('intersect-half')) return 0.5;
+      if (el.classList.contains('intersect-quarter')) return 0.25;
+      return 0;
+    }
+
+    private start() {
+      this.observer?.disconnect();
+      this.animationCounter = 0;
+
+      const selectors = [
+        '[class*=" intersect:"]',
+        '[class*=":intersect:"]',
+        '[class^="intersect:"]',
+        '[class="intersect"]',
+        '[class*=" intersect "]',
+        '[class^="intersect "]',
+        '[class$=" intersect"]',
+      ];
+
+      this.elements = Array.from(document.querySelectorAll<HTMLElement>(selectors.join(',')));
+
+      this.elements.forEach((el) => {
+        el.setAttribute('no-intersect', '');
+        this.thresholds.set(el, this.getThreshold(el));
+      });
+
+      const callback: IntersectionObserverCallback = (entries) => {
+        entries.forEach((entry) => {
+          requestAnimationFrame(() => {
+            const target = entry.target as HTMLElement;
+            const threshold = this.thresholds.get(target) ?? 0;
+
+            if (target.classList.contains('intersect-no-queue')) {
+              if (entry.isIntersecting) {
+                target.removeAttribute('no-intersect');
+                if (target.classList.contains('intersect-once')) this.observer?.unobserve(target);
+              } else {
+                target.setAttribute('no-intersect', '');
+              }
+              return;
+            }
+
+            if (entry.intersectionRatio >= threshold) {
+              if (!target.hasAttribute('data-animated')) {
+                target.removeAttribute('no-intersect');
+                target.setAttribute('data-animated', 'true');
+
+                const delay = this.animationCounter * this.delayBetweenAnimations;
+                this.animationCounter++;
+
+                target.style.transitionDelay = `${delay}ms`;
+                target.style.animationDelay = `${delay}ms`;
+
+                if (target.classList.contains('intersect-once')) this.observer?.unobserve(target);
+              }
+            } else {
+              target.setAttribute('no-intersect', '');
+              target.removeAttribute('data-animated');
+              target.style.transitionDelay = '';
+              target.style.animationDelay = '';
+
+              this.animationCounter = 0;
+            }
+          });
+        });
+      };
+
+      this.observer = new IntersectionObserver(callback, { threshold: [0, 0.25, 0.5, 0.99] });
+
+      this.elements.forEach((el) => {
+        if (!el.hasAttribute('data-animated')) this.observer?.observe(el);
+      });
+    }
+
+    // Clear the stagger delay on theme toggle so the swap doesn't flicker mid-animation.
+    private removeAnimationDelay() {
+      this.elements.forEach((el) => {
+        if (el.getAttribute('data-animated') === 'true') {
+          el.style.transitionDelay = '';
+          el.style.animationDelay = '';
+        }
+      });
+    }
+  }
+
+  if (!customElements.get('fc-intersect')) {
+    customElements.define('fc-intersect', FcIntersect);
+  }
+</script>

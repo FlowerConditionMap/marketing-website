@@ -1,0 +1,55 @@
+---
+import Headline from '~/components/ui/Headline.astro';
+import Timeline from '~/components/ui/Timeline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import type { TimelineItem } from '~/components/ui/Timeline.astro';
+
+export interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  items?: Array<TimelineItem>;
+  isReversed?: boolean;
+  isDark?: boolean;
+}
+
+const {
+  id,
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline,
+  items = [],
+  isReversed = false,
+  isDark = false,
+} = Astro.props;
+
+const hasAside = Astro.slots.has('aside');
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass="max-w-5xl">
+  <div
+    class:list={[
+      'flex flex-col gap-10 md:gap-14',
+      { 'md:flex-row-reverse': isReversed && hasAside, 'md:flex-row': hasAside },
+    ]}
+  >
+    <div class:list={['md:py-4 md:self-center', hasAside ? 'md:basis-1/2' : 'w-full']}>
+      <Headline
+        title={title}
+        subtitle={subtitle}
+        tagline={tagline}
+        classes={{
+          container: 'text-left',
+          title: 'text-3xl lg:text-4xl',
+        }}
+      />
+      <Timeline items={items} />
+    </div>
+    {hasAside && (
+      <div class="relative md:basis-1/2 flex items-center justify-center">
+        <slot name="aside" />
+      </div>
+    )}
+  </div>
+</WidgetWrapper>

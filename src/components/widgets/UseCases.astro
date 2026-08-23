@@ -1,0 +1,53 @@
+---
+import { Icon } from 'astro-icon/components';
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+
+export interface UseCaseItem {
+  title: string;
+  description: string;
+  icon: string;
+  accent: string;
+}
+
+export interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  items?: Array<UseCaseItem>;
+  isDark?: boolean;
+}
+
+const {
+  id,
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline,
+  items = [],
+  isDark = false,
+} = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass="max-w-6xl">
+  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+
+  <div class="grid gap-10 md:grid-cols-3">
+    {
+      items.map(({ title: itemTitle, description, icon, accent }) => (
+        <div class="text-center intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+          <div
+            class:list={[
+              'w-20 h-20 mx-auto mb-5 flex items-center justify-center rounded-full text-white shadow-lg',
+              accent,
+            ]}
+          >
+            <Icon name={icon} class="w-9 h-9" />
+          </div>
+          <h3 class="text-xl font-bold text-heading mb-3">{itemTitle}</h3>
+          <p class="text-muted">{description}</p>
+        </div>
+      ))
+    }
+  </div>
+</WidgetWrapper>
