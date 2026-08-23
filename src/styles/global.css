@@ -82,6 +82,23 @@ body {
   background: linear-gradient(to bottom right, #a78bfa, #c4b5fd);
 }
 
+/* Flowering-stage timeline icons */
+.stage-icon-1 {
+  background: linear-gradient(to bottom right, #86efac, #4ade80);
+}
+
+.stage-icon-2 {
+  background: linear-gradient(to bottom right, #f9a8d4, #f472b6);
+}
+
+.stage-icon-3 {
+  background: linear-gradient(to bottom right, #fdba74, #fb923c);
+}
+
+.stage-icon-4 {
+  background: linear-gradient(to bottom right, #fde68a, #fbbf24);
+}
+
 /* CTA button gradient */
 .btn-gradient {
   background: linear-gradient(to right, #ec4899, #a855f7);
