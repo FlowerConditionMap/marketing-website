@@ -35,6 +35,10 @@ body {
   background: linear-gradient(to bottom right, #fef2f2, #ffffff);
 }
 
+.bg-gradient-feature-7 {
+  background: linear-gradient(to bottom right, #fdf4ff, #ffffff);
+}
+
 /* Gradient text */
 .text-gradient {
   background: linear-gradient(to right, #db2777, #a855f7, #16a34a);

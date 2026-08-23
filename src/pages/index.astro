@@ -5,7 +5,8 @@ import '../styles/global.css';
 <html lang="zh-TW">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/favicon-32.png" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>FlowerConditionMap - 花況地圖 | 即時賞花資訊分享平台</title>
@@ -20,13 +21,11 @@ import '../styles/global.css';
 					<div class="col-lg-10">
 						<!-- App Icon -->
 						<div class="mb-4">
-							<div class="d-inline-flex align-items-center justify-content-center app-icon rounded-4xl shadow-lg" style="width: 96px; height: 96px; font-size: 3rem;">
-								🌸
-							</div>
+							<img src="/app-icon.png" alt="花況地圖 App 圖示" width="96" height="96" class="rounded-4xl shadow-lg" />
 						</div>
 
 						<!-- Title -->
-						<h1 class="display-1 fw-bold mb-4 text-gradient">
+						<h1 class="display-1 fw-bold mb-4 text-dark">
 							花況地圖
 						</h1>
 
@@ -66,9 +65,22 @@ import '../styles/global.css';
 						<div class="card h-100 border-0 shadow-sm bg-gradient-feature-1 rounded-4xl">
 							<div class="card-body p-4">
 								<div class="fs-1 mb-3">🗺️</div>
-								<h3 class="h4 fw-bold mb-3">即時花況地圖</h3>
+								<h3 class="h4 fw-bold mb-3">花況地圖</h3>
 								<p class="text-secondary mb-0">
-									在互動式地圖上即時顯示周圍的花況照片標記，支援智能叢集和 GPS 定位服務
+									自動讀取照片內的 GPS 資訊標記拍攝地點，在互動式地圖上瀏覽各地花況，快速掌握附近哪裡正在開花
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Feature 4 -->
+					<div class="col-md-6 col-lg-4">
+						<div class="card h-100 border-0 shadow-sm bg-gradient-feature-4 rounded-4xl">
+							<div class="card-body p-4">
+								<div class="fs-1 mb-3">🌷</div>
+								<h3 class="h4 fw-bold mb-3">花況分級顯示</h3>
+								<p class="text-secondary mb-0">
+	每種花卉依生長特性設計專屬花況分級（如含苞、盛開、花吹雪、轉紅、落葉等），一眼看出各地花況進度，掌握最佳賞花時機
 								</p>
 							</div>
 						</div>
@@ -79,35 +91,9 @@ import '../styles/global.css';
 						<div class="card h-100 border-0 shadow-sm bg-gradient-feature-2 rounded-4xl">
 							<div class="card-body p-4">
 								<div class="fs-1 mb-3">⏱️</div>
-								<h3 class="h4 fw-bold mb-3">時間軸回放</h3>
+								<h3 class="h4 fw-bold mb-3">即時時間軸瀏覽</h3>
 								<p class="text-secondary mb-0">
-									獨家功能！播放最近 10 天的花況變化動畫，直觀了解花期變化趨勢
-								</p>
-							</div>
-						</div>
-					</div>
-
-					<!-- Feature 3 -->
-					<div class="col-md-6 col-lg-4">
-						<div class="card h-100 border-0 shadow-sm bg-gradient-feature-3 rounded-4xl">
-							<div class="card-body p-4">
-								<div class="fs-1 mb-3">📸</div>
-								<h3 class="h4 fw-bold mb-3">智能照片標記</h3>
-								<p class="text-secondary mb-0">
-									AI 輔助辨識花種和花況，自動提取 GPS 座標，支援 18 種花卉植物
-								</p>
-							</div>
-						</div>
-					</div>
-
-					<!-- Feature 4 -->
-					<div class="col-md-6 col-lg-4">
-						<div class="card h-100 border-0 shadow-sm bg-gradient-feature-4 rounded-4xl">
-							<div class="card-body p-4">
-								<div class="fs-1 mb-3">🏔️</div>
-								<h3 class="h4 fw-bold mb-3">智能地點解析</h3>
-								<p class="text-secondary mb-0">
-									針對台灣、日本等不同國家使用專屬關鍵字搜尋策略，精準標記地點
+									獨家功能！以動畫方式播放近期花況照片變化，時間範圍依花種花期自動調整，逐日呈現花況擴散趨勢，一眼看懂目前的開花進度
 								</p>
 							</div>
 						</div>
@@ -138,6 +124,19 @@ import '../styles/global.css';
 							</div>
 						</div>
 					</div>
+
+					<!-- Feature 7 -->
+					<div class="col-md-6 col-lg-4">
+						<div class="card h-100 border-0 shadow-sm bg-gradient-feature-7 rounded-4xl">
+							<div class="card-body p-4">
+								<div class="fs-1 mb-3">❤️</div>
+								<h3 class="h4 fw-bold mb-3">收藏喜愛地點</h3>
+								<p class="text-secondary mb-0">
+									一鍵收藏賞花地點，依花種篩選管理收藏清單，隨時掌握回訪時機
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -147,7 +146,7 @@ import '../styles/global.css';
 			<div class="container py-5">
 				<div class="row justify-content-center mb-5">
 					<div class="col-lg-8 text-center">
-						<h2 class="display-4 fw-bold mb-3">支援 18 種花卉</h2>
+						<h2 class="display-4 fw-bold mb-3">支援 6 種花卉</h2>
 						<p class="fs-5 text-secondary">依季節分類，涵蓋春夏秋冬四季美景</p>
 					</div>
 				</div>
@@ -160,11 +159,7 @@ import '../styles/global.css';
 								<h3 class="h4 fw-bold mb-4 text-pink-700">🌸 春季</h3>
 								<ul class="list-unstyled mb-0">
 									<li class="mb-2"><span class="me-2">🌸</span> 櫻花</li>
-									<li class="mb-2"><span class="me-2">🌼</span> 油菜花</li>
-									<li class="mb-2"><span class="me-2">🌺</span> 杜鵑花</li>
-									<li class="mb-2"><span class="me-2">✿</span> 梅花</li>
-									<li class="mb-2"><span class="me-2">🌸</span> 桃花</li>
-									<li class="mb-0"><span class="me-2">💜</span> 紫藤</li>
+									<li class="mb-0"><span class="me-2">🪻</span> 紫藤</li>
 								</ul>
 							</div>
 						</div>
@@ -176,10 +171,6 @@ import '../styles/global.css';
 							<div class="card-body p-4">
 								<h3 class="h4 fw-bold mb-4 text-blue-700">☀️ 夏季</h3>
 								<ul class="list-unstyled mb-0">
-									<li class="mb-2"><span class="me-2">💙</span> 繡球花</li>
-									<li class="mb-2"><span class="me-2">🌻</span> 向日葵</li>
-									<li class="mb-2"><span class="me-2">💜</span> 薰衣草</li>
-									<li class="mb-2"><span class="me-2">🪷</span> 蓮花</li>
 									<li class="mb-0"><span class="me-2">🌺</span> 鳳凰木</li>
 								</ul>
 							</div>
@@ -192,10 +183,7 @@ import '../styles/global.css';
 							<div class="card-body p-4">
 								<h3 class="h4 fw-bold mb-4 text-orange-700">🍂 秋季</h3>
 								<ul class="list-unstyled mb-0">
-									<li class="mb-2"><span class="me-2">🍁</span> 楓葉</li>
-									<li class="mb-2"><span class="me-2">🌾</span> 芒草</li>
-									<li class="mb-2"><span class="me-2">🌸</span> 波斯菊</li>
-									<li class="mb-0"><span class="me-2">🌼</span> 金針花</li>
+									<li class="mb-0"><span class="me-2">🍁</span> 楓葉</li>
 								</ul>
 							</div>
 						</div>
@@ -208,7 +196,6 @@ import '../styles/global.css';
 								<h3 class="h4 fw-bold mb-4 text-warning">❄️ 冬季</h3>
 								<ul class="list-unstyled mb-0">
 									<li class="mb-2"><span class="me-2">🍂</span> 銀杏</li>
-									<li class="mb-2"><span class="me-2">🌺</span> 茶花</li>
 									<li class="mb-0"><span class="me-2">🌲</span> 落羽松</li>
 								</ul>
 							</div>
@@ -278,8 +265,8 @@ import '../styles/global.css';
 							立即下載，探索身邊的花卉美景
 						</p>
 
-						<a href="#" class="btn btn-gradient btn-lg rounded-pill shadow-lg px-5 py-3 fs-5">
-							免費下載 FlowerConditionMap
+						<a href="#" class="text-decoration-none">
+							<img src="/app-store-badge.svg" alt="Download on the App Store" height="60" class="hover-opacity">
 						</a>
 					</div>
 				</div>
