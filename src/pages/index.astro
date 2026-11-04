@@ -6,6 +6,9 @@ import Seasons from '~/components/widgets/Seasons.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import UseCases from '~/components/widgets/UseCases.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Button from '~/components/ui/Button.astro';
+
+const testFlightUrl = 'https://testflight.apple.com/join/nMGEHpjF';
 
 const metadata = {
   title: '花況地圖 FlowerConditionMap｜即時賞花資訊分享平台',
@@ -17,7 +20,10 @@ const metadata = {
 <PageLayout title={metadata.title} description={metadata.description}>
   <!-- Hero ****************** -->
 
-  <Hero tagline="即時賞花資訊分享平台">
+  <Hero
+    tagline="即時賞花資訊分享平台"
+    actions={[{ variant: 'primary', text: '加入 TestFlight 搶先試用', href: testFlightUrl, target: '_blank', icon: 'tabler:brand-apple' }]}
+  >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-gradient-to-b from-pink-50 via-white to-emerald-50 dark:from-[#1a0f1d] dark:via-[#0f0a14] dark:to-[#0b1410]"></div>
       <div class="absolute -top-24 -left-24 w-[28rem] h-[28rem] rounded-full bg-pink-300/30 dark:bg-pink-500/10 blur-3xl"></div>
@@ -211,9 +217,12 @@ const metadata = {
 
   <CallToAction title="開始您的賞花之旅" subtitle="立即下載，探索身邊的花卉美景">
     <Fragment slot="badge">
-      <a href="#" aria-label="從 App Store 下載花況地圖" class="transition hover:opacity-80">
-        <img src="/app-store-badge.svg" alt="Download on the App Store" height="60" class="h-[60px] w-auto" />
-      </a>
+      <div class="flex flex-col items-center gap-4">
+        <Button variant="primary" text="加入 TestFlight 搶先試用" href={testFlightUrl} target="_blank" icon="tabler:brand-apple" />
+        <a href="#" aria-label="從 App Store 下載花況地圖" class="transition hover:opacity-80">
+          <img src="/app-store-badge.svg" alt="Download on the App Store" height="60" class="h-[60px] w-auto" />
+        </a>
+      </div>
     </Fragment>
   </CallToAction>
 </PageLayout>
