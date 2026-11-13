@@ -48,12 +48,12 @@ const columnsClass =
       <div class:list={['grid mx-auto gap-6 md:gap-8', columnsClass]}>
         {items.map(({ title: itemTitle, description, icon, accent }) => (
           <div class="intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
-            <div class="relative h-full flex flex-col p-6 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-sm border border-black/5 dark:border-white/10 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-200">
+            <div class="relative h-full flex flex-col p-6 rounded-2xl bg-white/70 dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-200">
               {icon && (
                 <div
                   class:list={[
-                    'w-12 h-12 mb-4 flex items-center justify-center rounded-xl text-white shadow-md',
-                    accent ?? 'bg-gradient-to-br from-pink-400 to-rose-500',
+                    'w-12 h-12 mb-4 flex items-center justify-center rounded-xl text-white',
+                    accent ?? 'bg-primary',
                   ]}
                 >
                   <Icon name={icon} class="w-6 h-6" />

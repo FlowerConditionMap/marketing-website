@@ -25,15 +25,12 @@ const metadata = {
     actions={[{ variant: 'primary', text: '加入 TestFlight 搶先試用', href: testFlightUrl, target: '_blank', icon: 'tabler:brand-apple' }]}
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-gradient-to-b from-pink-50 via-white to-emerald-50 dark:from-[#1a0f1d] dark:via-[#0f0a14] dark:to-[#0b1410]"></div>
-      <div class="absolute -top-24 -left-24 w-[28rem] h-[28rem] rounded-full bg-pink-300/30 dark:bg-pink-500/10 blur-3xl"></div>
-      <div class="absolute top-32 -right-24 w-[26rem] h-[26rem] rounded-full bg-emerald-300/30 dark:bg-emerald-500/10 blur-3xl"></div>
-      <div class="absolute bottom-0 left-1/3 w-[24rem] h-[24rem] rounded-full bg-purple-300/20 dark:bg-purple-500/10 blur-3xl"></div>
+      <div class="absolute inset-0 bg-pink-50/60 dark:bg-[#0f0a14]"></div>
     </Fragment>
 
     <Fragment slot="title">
       花況地圖，<br class="hidden sm:inline" />
-      <span class="bg-gradient-to-r from-pink-600 via-purple-500 to-emerald-600 dark:from-pink-400 dark:via-purple-300 dark:to-emerald-400 bg-clip-text text-transparent">
+      <span class="text-primary">
         讓你不再錯過花期
       </span>
     </Fragment>
@@ -63,39 +60,39 @@ const metadata = {
         description:
           '自動讀取照片內的 GPS 資訊標記拍攝地點，在互動式地圖上瀏覽各地花況，快速掌握附近哪裡正在開花',
         icon: 'tabler:map-2',
-        accent: 'bg-gradient-to-br from-pink-400 to-rose-500',
+        accent: 'bg-primary',
       },
       {
         title: '花況分級顯示',
         description:
           '每種花卉依生長特性設計專屬花況分級（如含苞、盛開、花吹雪、轉紅、落葉等），一眼看出各地花況進度，掌握最佳賞花時機',
         icon: 'tabler:flower',
-        accent: 'bg-gradient-to-br from-amber-400 to-orange-500',
+        accent: 'bg-primary',
       },
       {
         title: '即時時間軸瀏覽',
         description:
           '獨家功能！以動畫方式播放近期花況照片變化，時間範圍依花種花期自動調整，逐日呈現花況擴散趨勢，一眼看懂目前的開花進度',
         icon: 'tabler:player-play',
-        accent: 'bg-gradient-to-br from-violet-400 to-purple-600',
+        accent: 'bg-primary',
       },
       {
         title: '歷史資料回退',
         description: '當最近無資料時，自動查詢去年同期的滿開照片，全年都能參考花況',
         icon: 'tabler:history',
-        accent: 'bg-gradient-to-br from-sky-400 to-blue-600',
+        accent: 'bg-primary',
       },
       {
         title: '收藏喜愛地點',
         description: '一鍵收藏賞花地點，依花種篩選管理收藏清單，隨時掌握回訪時機',
         icon: 'tabler:heart',
-        accent: 'bg-gradient-to-br from-rose-400 to-pink-600',
+        accent: 'bg-primary',
       },
       {
         title: '社群監督機制',
         description: '照片檢舉功能和智能審核系統，確保平台資訊準確可靠',
         icon: 'tabler:shield-check',
-        accent: 'bg-gradient-to-br from-emerald-400 to-green-600',
+        accent: 'bg-primary',
       },
     ]}
   />
@@ -112,7 +109,7 @@ const metadata = {
       {
         season: '春季',
         emoji: '🌸',
-        accent: 'bg-gradient-to-br from-pink-100 to-pink-200 dark:from-pink-500/15 dark:to-pink-500/5',
+        accent: 'bg-pink-100 dark:bg-pink-500/10',
         flowers: [
           { emoji: '🌸', name: '櫻花' },
           { emoji: '🪻', name: '紫藤' },
@@ -121,19 +118,19 @@ const metadata = {
       {
         season: '夏季',
         emoji: '☀️',
-        accent: 'bg-gradient-to-br from-sky-100 to-blue-200 dark:from-sky-500/15 dark:to-sky-500/5',
+        accent: 'bg-sky-100 dark:bg-sky-500/10',
         flowers: [{ emoji: '🌺', name: '鳳凰木' }],
       },
       {
         season: '秋季',
         emoji: '🍂',
-        accent: 'bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-500/15 dark:to-orange-500/5',
+        accent: 'bg-orange-100 dark:bg-orange-500/10',
         flowers: [{ emoji: '🍁', name: '楓葉' }],
       },
       {
         season: '冬季',
         emoji: '❄️',
-        accent: 'bg-gradient-to-br from-amber-100 to-yellow-200 dark:from-amber-500/15 dark:to-amber-500/5',
+        accent: 'bg-amber-100 dark:bg-amber-500/10',
         flowers: [
           { emoji: '🍂', name: '銀杏' },
           { emoji: '🌲', name: '落羽松' },
@@ -173,9 +170,7 @@ const metadata = {
     ]}
   >
     <Fragment slot="aside">
-      <div class="relative w-full max-w-sm aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-pink-100 via-white to-emerald-100 dark:from-pink-500/10 dark:via-white/5 dark:to-emerald-500/10 border border-black/5 dark:border-white/10 shadow-lg flex items-center justify-center">
-        <div class="absolute -top-10 -right-10 w-56 h-56 rounded-full bg-pink-300/40 dark:bg-pink-500/20 blur-3xl"></div>
-        <div class="absolute -bottom-10 -left-10 w-56 h-56 rounded-full bg-emerald-300/40 dark:bg-emerald-500/20 blur-3xl"></div>
+      <div class="relative w-full max-w-sm aspect-square rounded-3xl overflow-hidden bg-pink-50 dark:bg-white/5 border border-black/5 dark:border-white/10 flex items-center justify-center">
         <div class="relative grid grid-cols-3 gap-5 text-4xl p-8" aria-hidden="true">
           <span>🗓️</span><span>🌱</span><span>🌸</span>
           <span>🍃</span><span>🗺️</span><span>📷</span>
@@ -196,19 +191,19 @@ const metadata = {
         title: '賞花愛好者',
         description: '查詢附近花況，規劃賞花行程，分享美好體驗',
         icon: 'tabler:flower',
-        accent: 'bg-gradient-to-br from-pink-400 to-rose-500',
+        accent: 'bg-primary',
       },
       {
         title: '旅遊規劃',
         description: '掌握不同地區花期，發現熱門景點，預測最佳時機',
         icon: 'tabler:map-pin',
-        accent: 'bg-gradient-to-br from-emerald-400 to-green-600',
+        accent: 'bg-primary',
       },
       {
         title: '攝影愛好者',
         description: '尋找絕佳拍攝地點，掌握最佳拍攝時機，分享精彩作品',
         icon: 'tabler:camera',
-        accent: 'bg-gradient-to-br from-violet-400 to-purple-600',
+        accent: 'bg-primary',
       },
     ]}
   />
