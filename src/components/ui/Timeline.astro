@@ -31,8 +31,10 @@ const {
     <div class={containerClass}>
       {items.map(({ title, description, icon, classes: itemClasses = {} }, index) => (
         <div
+          data-stage={index}
+          tabindex="0"
           class={twMerge(
-            'flex intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
+            'group flex cursor-pointer intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
             panelClass,
             itemClasses?.panel
           )}
@@ -42,7 +44,7 @@ const {
               {(icon || defaultIcon) && (
                 <Icon
                   name={icon || defaultIcon}
-                  class={twMerge('w-10 h-10 p-2 rounded-full border-2', defaultIconClass, itemClasses?.icon)}
+                  class={twMerge('w-10 h-10 p-2 rounded-full border-2 transition-colors group-data-[active=true]:bg-primary group-data-[active=true]:text-white', defaultIconClass, itemClasses?.icon)}
                 />
               )}
             </div>

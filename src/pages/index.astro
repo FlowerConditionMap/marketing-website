@@ -156,7 +156,7 @@ const metadata = {
     items={[
       {
         title: '花期前・提前規劃',
-        description: '出發前查看歷史花況紀錄，掌握過往哪些地點看得到花，提前排好旅遊行程',
+        description: '出發前查看開花預測，掌握各地預計的開花日期，再對照歷史花況紀錄，提前排好旅遊行程',
         icon: 'tabler:calendar-event',
       },
       {
@@ -177,11 +177,23 @@ const metadata = {
     ]}
   >
     <Fragment slot="aside">
-      <div class="relative w-full max-w-sm aspect-square rounded-3xl overflow-hidden bg-[#f7f6f4] dark:bg-white/5 border border-black/5 dark:border-white/10 flex items-center justify-center">
-        <div class="relative grid grid-cols-3 gap-5 text-4xl p-8" aria-hidden="true">
-          <span>🗓️</span><span>🌱</span><span>🌸</span>
-          <span>🍃</span><span>🗺️</span><span>📷</span>
-          <span>🍁</span><span>🌲</span><span>🪻</span>
+      <div class="relative w-full max-w-[17rem] aspect-[923/1992] rounded-[2.5rem] overflow-hidden bg-[#f7f6f4] dark:bg-white/5 border border-black/5 dark:border-white/10">
+        <div data-stage-panel="0" class="absolute inset-0">
+          <img src="/screenshots/prediction.jpg" alt="App 地圖上的開花預測標記：東京都金黃 11/27、神奈川縣金黃 12/7" width="640" height="1387" class="h-full w-full object-cover" />
+        </div>
+        <div data-stage-panel="1" hidden class="absolute inset-0">
+          <div class="h-full flex flex-col items-center justify-center gap-6 p-8">
+            <div class="grid grid-cols-3 gap-5 text-4xl" aria-hidden="true">
+              <span>🌱</span><span>🌿</span><span>🌸</span><span>📍</span><span>🗺️</span><span>📷</span>
+            </div>
+            <p class="text-lg font-semibold text-heading">含苞・初開</p>
+          </div>
+        </div>
+        <div data-stage-panel="2" hidden class="absolute inset-0">
+          <img src="/screenshots/photos.jpg" alt="App 地圖上其他人分享的賞花路徑照片標記" width="640" height="1387" class="h-full w-full object-cover" />
+        </div>
+        <div data-stage-panel="3" hidden class="absolute inset-0">
+          <img src="/screenshots/spots.jpg" alt="App 地圖上的景點標記：東京的銀杏景點" width="640" height="1387" class="h-full w-full object-cover" />
         </div>
       </div>
     </Fragment>

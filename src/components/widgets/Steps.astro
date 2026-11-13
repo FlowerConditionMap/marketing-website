@@ -53,3 +53,22 @@ const hasAside = Astro.slots.has('aside');
     )}
   </div>
 </WidgetWrapper>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-stage]').forEach((item) => {
+    const root = item.closest('section, div[id]') ?? document;
+    const select = () => {
+      const stage = item.dataset.stage;
+      root.querySelectorAll<HTMLElement>('[data-stage]').forEach((el) => {
+        el.dataset.active = String(el.dataset.stage === stage);
+      });
+      root.querySelectorAll<HTMLElement>('[data-stage-panel]').forEach((panel) => {
+        panel.hidden = panel.dataset.stagePanel !== stage;
+      });
+    };
+    item.addEventListener('mouseenter', select);
+    item.addEventListener('focus', select);
+    item.addEventListener('click', select);
+    if (item.dataset.stage === '0') select();
+  });
+</script>
