@@ -36,7 +36,7 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      在互動式地圖上即時查看各地花況照片，透過花況分級與時間軸回放，掌握最佳賞花時機和地點。
+      在互動式地圖上即時查看各地花況照片，透過花況分級、時間軸回放與依氣溫推算的開花預測，掌握最佳賞花時機和地點。
     </Fragment>
 
     <Fragment slot="badge">
@@ -53,13 +53,20 @@ const metadata = {
     tagline="主要功能"
     title="完整的賞花體驗，從記錄到分享"
     subtitle="從照片上傳、地圖瀏覽到花況趨勢，一個 App 全部搞定"
-    columns={3}
+    columns={4}
     items={[
       {
         title: '花況地圖',
         description:
           '自動讀取照片內的 GPS 資訊標記拍攝地點，在互動式地圖上瀏覽各地花況，快速掌握附近哪裡正在開花',
         icon: 'tabler:map-2',
+        accent: 'bg-primary',
+      },
+      {
+        title: '開花預測',
+        description:
+          '依氣溫資料推算各行政區的初開、盛開、開始凋謝與凋謝結束日期，直接在地圖上看到預計哪天開花，出發前就能排好行程。目前支援部分國家與花種',
+        icon: 'tabler:chart-line',
         accent: 'bg-primary',
       },
       {
@@ -74,6 +81,12 @@ const metadata = {
         description:
           '獨家功能！以動畫方式播放近期花況照片變化，時間範圍依花種花期自動調整，逐日呈現花況擴散趨勢，一眼看懂目前的開花進度',
         icon: 'tabler:player-play',
+        accent: 'bg-primary',
+      },
+      {
+        title: '景點圖層',
+        description: '在地圖上開啟景點圖層，標出各地賞花景點，相近的景點自動合併並顯示數量，不必在大量照片中自己找',
+        icon: 'tabler:map-pins',
         accent: 'bg-primary',
       },
       {
