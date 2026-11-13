@@ -32,26 +32,26 @@
 }
 
 :root {
-  --fc-color-primary: rgb(219 39 119);
-  --fc-color-secondary: rgb(190 24 93);
+  --fc-color-primary: rgb(190 52 85);
+  --fc-color-secondary: rgb(150 38 66);
   --fc-color-accent: rgb(22 163 74);
 
   --fc-color-text-heading: rgb(17 17 17);
   --fc-color-text-default: rgb(31 31 31);
   --fc-color-text-muted: rgb(31 31 31 / 66%);
   --fc-color-bg-page: rgb(255 255 255);
-  --fc-color-bg-page-dark: rgb(15 10 20);
+  --fc-color-bg-page-dark: rgb(24 22 26);
 }
 
 :root.dark {
-  --fc-color-primary: rgb(244 114 182);
-  --fc-color-secondary: rgb(236 72 153);
+  --fc-color-primary: rgb(224 108 132);
+  --fc-color-secondary: rgb(238 140 160);
   --fc-color-accent: rgb(74 222 128);
 
   --fc-color-text-heading: rgb(247 248 248);
   --fc-color-text-default: rgb(236 233 240);
   --fc-color-text-muted: rgb(236 233 240 / 66%);
-  --fc-color-bg-page: rgb(15 10 20);
+  --fc-color-bg-page: rgb(24 22 26);
 }
 
 @utility bg-page {
@@ -69,7 +69,7 @@
 @utility btn {
   @apply inline-flex items-center justify-center rounded-full border-gray-400 border bg-transparent font-medium
     text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200
-    focus:ring-pink-500 focus:ring-offset-pink-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100
+    focus:ring-primary focus:ring-offset-gray-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100
     hover:border-gray-600 dark:text-slate-300 dark:border-slate-500 dark:hover:bg-slate-800
     dark:hover:border-slate-800 cursor-pointer;
 }
@@ -100,7 +100,7 @@ body {
 
 .dark #header.scroll > div:first-child,
 #header.scroll.dark > div:first-child {
-  @apply bg-page md:bg-[#0f0a14e6] border-b border-gray-500/20;
+  @apply bg-page md:bg-[#18161ae6] border-b border-gray-500/20;
   box-shadow: none;
 }
 
