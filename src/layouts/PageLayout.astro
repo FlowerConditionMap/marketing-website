@@ -9,18 +9,20 @@ import Footer from '~/components/widgets/Footer.astro';
 export interface Props {
   title: string;
   description: string;
+  headerLinks?: Array<{ text: string; href: string }>;
+  footerLinks?: Array<{ title: string; links: Array<{ text: string; href: string }> }>;
 }
 
 const { title, description } = Astro.props;
 
-const headerLinks = [
+const headerLinks = Astro.props.headerLinks ?? [
   { text: '主要功能', href: '#features' },
   { text: '支援花卉', href: '#flowers' },
   { text: '花期階段', href: '#stages' },
   { text: '適用場景', href: '#use-cases' },
 ];
 
-const footerLinks = [
+const footerLinks = Astro.props.footerLinks ?? [
   {
     title: '產品',
     links: [
@@ -28,6 +30,10 @@ const footerLinks = [
       { text: '支援花卉', href: '#flowers' },
       { text: '適用場景', href: '#use-cases' },
     ],
+  },
+  {
+    title: '法律',
+    links: [{ text: '使用條款', href: '/terms' }],
   },
 ];
 ---

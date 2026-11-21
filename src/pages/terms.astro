@@ -1,0 +1,124 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: '使用條款｜花況地圖 FlowerConditionMap',
+  description: '花況地圖使用條款：帳號、上傳內容授權、花況預測用途、內容審核、付費功能與聯絡方式。',
+};
+
+const headerLinks = [{ text: '回首頁', href: '/' }];
+const footerLinks = [
+  {
+    title: '法律',
+    links: [
+      { text: '使用條款', href: '/terms' },
+      { text: '隱私權政策', href: '/privacy' },
+    ],
+  },
+];
+---
+
+<PageLayout title={metadata.title} description={metadata.description} headerLinks={headerLinks} footerLinks={footerLinks}>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-heading">花況地圖 使用條款</h1>
+    <p class="mt-3 text-sm text-muted">最後更新：2026-11-21</p>
+
+    <p class="mt-6 leading-7">
+      歡迎使用「花況地圖」（以下稱「本服務」）。本服務由花況地圖開發團隊（以下稱「我們」）提供。你使用本服務，或在上傳頁勾選同意並上傳照片，即表示你已閱讀並同意本條款。若不同意，請不要上傳照片。
+    </p>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">1. 本服務是什麼</h2>
+    <p class="mt-3 leading-7">
+      本服務讓使用者在地圖上查看與分享櫻花、楓葉、銀杏等花卉的開花狀況。你可以上傳帶有位置資訊的照片、指定花種與花況、瀏覽他人照片、收藏地點與按讚。
+    </p>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">2. 帳號</h2>
+    <ul class="mt-3 space-y-2 leading-7 list-disc pl-6">
+      <li>你可以用 Apple 登入，或在上傳時以訪客身分使用。訪客帳號是為了讓你能上傳照片而建立的匿名帳號。</li>
+      <li>訪客帳號可以在日後轉為正式帳號。請妥善保管你的登入方式，帳號下的行為視為你的行為。</li>
+      <li>你應提供正確的資料，不得冒用他人身分。</li>
+    </ul>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">3. 你上傳的內容</h2>
+    <p class="mt-3 leading-7">「你的內容」指你上傳的照片，以及你填寫的花種、花況、拍攝日期、位置與地點名稱。</p>
+    <ol class="mt-3 space-y-2 leading-7 list-decimal pl-6">
+      <li><strong>你的內容仍屬於你。</strong>我們不會取得你照片的所有權。</li>
+      <li>
+        <strong>你授權我們使用。</strong>你上傳照片時，即授權我們在全球範圍內，非專屬、免費、可再授權（僅限於提供本服務所需）地使用、儲存、重製、縮放、壓縮、顯示你的內容，用於下列目的：
+        <ol class="mt-2 space-y-2 leading-7 list-decimal pl-6">
+          <li>在地圖與地點頁面向其他使用者顯示你的照片與花況；</li>
+          <li>產生並提供未來花況預測；</li>
+          <li>訓練與改善花種與花況辨識模型；</li>
+          <li>審核內容、維護服務安全與品質。</li>
+        </ol>
+      </li>
+      <li><strong>授權期間：</strong>到你刪除該照片、或帳號被刪除為止。【刪除後，已用於訓練的模型不會因此重新訓練，但我們不會再使用該照片進行新的訓練。是否這樣約定，請確認。】</li>
+      <li><strong>你保證：</strong>你有權上傳這些照片，並授予上述授權；照片沒有侵害他人的著作權、肖像權或隱私。</li>
+      <li><strong>照片會公開。</strong>通過審核的照片與其拍攝位置會顯示給其他使用者。請勿上傳包含他人臉孔、車牌、住家內部或其他不希望被公開資訊的照片。</li>
+    </ol>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">4. 位置與個人資料</h2>
+    <ul class="mt-3 space-y-2 leading-7 list-disc pl-6">
+      <li>我們會處理你的照片位置（GPS）、帳號識別資料、裝置與使用紀錄，用於提供服務、防止濫用與改善服務。</li>
+      <li>照片的拍攝位置會隨照片公開，並可能與地點名稱一起顯示。</li>
+      <li>詳細的蒐集項目、保存期間與你的權利，請見《隱私權政策》：【隱私權政策網址】。</li>
+    </ul>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">5. 使用規則</h2>
+    <p class="mt-3 leading-7">你不得：</p>
+    <ol class="mt-3 space-y-2 leading-7 list-decimal pl-6">
+      <li>上傳與花卉無關、虛假、誤導的照片或花況資訊，或刻意標錯位置、花種、花況；</li>
+      <li>上傳違法、侵權、色情、暴力、仇恨或騷擾他人的內容；</li>
+      <li>以程式或其他自動化方式大量抓取、攻擊或干擾本服務；</li>
+      <li>試圖取得他人帳號，或規避我們的審核與安全機制；</li>
+      <li>其他違反法令或本條款的行為。</li>
+    </ol>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">6. 內容審核與移除</h2>
+    <p class="mt-3 leading-7">
+      我們可能以人工或自動方式審核照片。違反本條款、不符合服務目的，或收到有效檢舉的內容，我們可以拒絕顯示或移除，不另行通知。反覆違規的帳號，我們可以停權。
+    </p>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">7. 刪除與撤回</h2>
+    <ul class="mt-3 space-y-2 leading-7 list-disc pl-6">
+      <li>你可以隨時在 App 內刪除你上傳的照片。刪除後，照片不再對其他使用者顯示，我們也不再用它進行新的預測或訓練。【確認：是否同步從備份與訓練資料集移除，以及時間。】</li>
+      <li>你可以聯絡我們申請刪除帳號與資料：【聯絡信箱】。</li>
+    </ul>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">8. 付費功能</h2>
+    <p class="mt-3 leading-7">
+      本服務部分功能（例如超過免費額度的收藏地點）需要付費。付費透過 Apple 的 App Store 處理，價格、扣款、續訂與退款依 Apple
+      的規定與你與 Apple 之間的條款辦理。【確認：付費方案與退款政策是否另有約定。】
+    </p>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">9. 預測與資訊的限制</h2>
+    <p class="mt-3 leading-7">
+      花況與花期預測是依照使用者上傳的資料與模型推估，不保證準確。請在出發前自行確認現場狀況。我們不對因參考本服務資訊而產生的行程變更、費用或損失負責，但法律另有規定者除外。
+    </p>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">10. 服務變更與終止</h2>
+    <p class="mt-3 leading-7">
+      我們可能新增、修改或停止部分或全部功能。重大變更會在 App 內或網站公告。你可以隨時停止使用本服務。
+    </p>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">11. 免責與責任限制</h2>
+    <ul class="mt-3 space-y-2 leading-7 list-disc pl-6">
+      <li>在法律允許範圍內，本服務依「現況」提供，不保證不中斷、無錯誤。</li>
+      <li>在法律允許範圍內，我們對你因使用本服務而產生的間接或衍生損害不負責。對你的直接損害，賠償上限為【你在過去 12 個月內支付給我們的費用／新台幣【金額】元】。</li>
+      <li>本條不排除或限制依法不得排除的責任（例如故意或重大過失、消費者保護法的規定）。</li>
+    </ul>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">12. 條款修改</h2>
+    <p class="mt-3 leading-7">
+      我們可能修改本條款。修改後會在 App 內或網站公告，並更新最後更新日期。重大變更時，我們會要求你重新同意後才能繼續上傳。你在修改生效後繼續使用本服務，視為接受修改後的條款。
+    </p>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">13. 準據法與管轄</h2>
+    <p class="mt-3 leading-7">
+      本條款以中華民國法律為準據法。因本條款產生的爭議，以【臺灣【地點】地方法院】為第一審管轄法院，但法律對消費者另有管轄規定者，從其規定。
+    </p>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">14. 聯絡我們</h2>
+    <p class="mt-3 leading-7">花況地圖開發團隊<br />【聯絡信箱】</p>
+  </article>
+</PageLayout>

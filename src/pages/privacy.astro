@@ -1,0 +1,74 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: '隱私權政策｜花況地圖 FlowerConditionMap',
+  description: '花況地圖隱私權政策：蒐集的資料、用途、保存期間、你的權利與聯絡方式。',
+};
+
+const headerLinks = [{ text: '回首頁', href: '/' }];
+const footerLinks = [
+  {
+    title: '法律',
+    links: [
+      { text: '使用條款', href: '/terms' },
+      { text: '隱私權政策', href: '/privacy' },
+    ],
+  },
+];
+---
+
+<PageLayout title={metadata.title} description={metadata.description} headerLinks={headerLinks} footerLinks={footerLinks}>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-heading">花況地圖 隱私權政策</h1>
+    <p class="mt-3 text-sm text-muted">最後更新：2026-11-21</p>
+
+    <p class="mt-6 leading-7">
+      花況地圖開發團隊（以下稱「我們」）重視你的隱私。本政策說明我們蒐集哪些資料、如何使用、保存多久，以及你有什麼權利。使用本服務即表示你已閱讀本政策。
+    </p>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">1. 我們蒐集的資料</h2>
+    <ul class="mt-3 space-y-2 leading-7 list-disc pl-6">
+      <li><strong>帳號資料：</strong>Apple 登入識別碼、登入狀態。訪客帳號為匿名識別碼，不含你的真實姓名。</li>
+      <li><strong>你上傳的內容：</strong>照片（含拍攝位置 GPS、拍攝日期）、你填寫的花種、花況與地點名稱。</li>
+      <li><strong>使用紀錄：</strong>收藏、按讚、瀏覽紀錄等 App 內操作，用於提供服務與防止濫用。</li>
+      <li><strong>裝置與診斷資料：</strong>裝置型號、系統版本、當機報告與匿名化使用統計，用於除錯與改善服務。</li>
+    </ul>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">2. 資料的用途</h2>
+    <ul class="mt-3 space-y-2 leading-7 list-disc pl-6">
+      <li>提供服務：在地圖與地點頁面顯示照片與花況、提供花況預測。</li>
+      <li>訓練與改善花種、花況辨識模型及花期預測。</li>
+      <li>審核內容、維護服務安全、防止濫用。</li>
+      <li>分析使用情形、改善服務品質。</li>
+    </ul>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">3. 照片會公開</h2>
+    <p class="mt-3 leading-7">
+      通過審核的照片、拍攝位置與花況資訊會顯示給其他使用者。請勿上傳包含他人臉孔、車牌、住家內部或其他不希望公開資訊的照片。
+    </p>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">4. 資料保存期間</h2>
+    <ul class="mt-3 space-y-2 leading-7 list-disc pl-6">
+      <li>你刪除照片後，該照片不再對其他使用者顯示，我們也不再用它進行新的預測或訓練。【確認：是否同步從備份與訓練資料集移除，以及時間。】</li>
+      <li>帳號刪除後，與該帳號直接關聯的個人資料將刪除或匿名化。【確認：刪除範圍與時間。】</li>
+    </ul>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">5. 你的權利</h2>
+    <p class="mt-3 leading-7">
+      你可以隨時在 App 內刪除你上傳的照片、取消收藏。若要查詢、更正或刪除你的個人資料，或刪除帳號，請聯絡我們：【聯絡信箱】。
+    </p>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">6. 第三方服務</h2>
+    <p class="mt-3 leading-7">
+      本服務透過 Apple（登入與付費）、Supabase（身分驗證與資料儲存）提供部分功能，這些服務有各自的隱私權政策。付費透過 Apple 的 App Store
+      處理，付款資訊由 Apple 處理，我們不會收到你的信用卡資料。
+    </p>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">7. 政策修改</h2>
+    <p class="mt-3 leading-7">我們可能修改本政策。修改後會在 App 內或網站公告，並更新最後更新日期。重大變更會另外通知。</p>
+
+    <h2 class="mt-10 text-xl font-bold text-heading">8. 聯絡我們</h2>
+    <p class="mt-3 leading-7">花況地圖開發團隊<br />【聯絡信箱】</p>
+  </article>
+</PageLayout>
